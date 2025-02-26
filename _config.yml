@@ -14,7 +14,7 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: 천재적인아티스트 # the main title
+title: 천재적인 아티스트 # the main title
 
 tagline: 오늘도 엄청나신 나님입니다. # it will display as the subtitle
 
@@ -46,7 +46,7 @@ social:
 
 # Site Verification Settings
 webmaster_verifications:
-  google: # fill in your Google verification code
+  google: <meta name="google-site-verification" content="_Q5f9xKnaZcfcA5YBc0Jxw7mHcQAeBg8bUPCqKdK5lY" />
   bing: # fill in your Bing verification code
   alexa: # fill in your Alexa verification code
   yandex: # fill in your Yandex verification code
