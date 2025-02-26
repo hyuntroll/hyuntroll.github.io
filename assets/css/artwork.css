@@ -3,56 +3,37 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
     text-align: center;
+    margin: 20px 0;
 }
 
-.gallery {
+.artwork-gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 10px;
 }
 
-.gallery-item {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    overflow: hidden;
-    width: calc(33% - 2rem);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.artwork-gallery figure {
+    margin: 0;
+    padding: 0;
+    width: 200px;
 }
 
-.gallery-item img {
+.artwork-gallery img {
     width: 100%;
     height: auto;
     display: block;
 }
 
-.gallery-item p {
-    padding: 0.5rem;
+.artwork-gallery figcaption {
     text-align: center;
-    background-color: #f8f8f8;
-    margin: 0;
-}
-
-.content {
-    padding: 1rem;
-}
-
-@media (max-width: 768px) {
-    .gallery-item {
-        width: calc(50% - 2rem);
-    }
-}
-
-@media (max-width: 480px) {
-    .gallery-item {
-        width: calc(100% - 2rem);
-    }
+    font-size: 14px;
+    margin-top: 5px;
 }
