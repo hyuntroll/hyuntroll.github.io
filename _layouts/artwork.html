@@ -1,5 +1,6 @@
 ---
 layout: default
+refactor: true
 panel_includes:
   - toc
 tail_includes:
@@ -9,25 +10,32 @@ script_includes:
   - comment
 ---
 
+{% include lang.html %}
+
+{% include toc-status.html %}
+
 <article class="px-1" data-toc="{{ enable_toc }}">
   <header>
-    <!-- 그림 -->
+    <!-- 이미지 -->
     {% if page.image %}
+      {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
+      {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
+      {% capture alt %}alt="{{ page.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
+
       <div class="mt-3 mb-3">
-        <img src="{{ page.image.path | default: page.image }}" class="preview-img" alt="{{ page.image.alt | default: 'Preview Image' }}" style="width: 100%; height: auto;">
-        {% if page.image.alt %}
+        <img {{ src }} {{ class }} {{ alt }} style="width: 100%; height: auto;">
+        {%- if page.image.alt -%}
           <figcaption class="text-center pt-2 pb-2">{{ page.image.alt }}</figcaption>
-        {% endif %}
+        {%- endif -%}
       </div>
     {% endif %}
 
+    <!-- 제목 -->
     <h1 data-toc-skip>{{ page.title }}</h1>
     {% if page.description %}
       <p class="post-desc fw-light mb-4">{{ page.description }}</p>
     {% endif %}
-  </header>
 
-  <div class="post-meta text-muted">
     <!-- 태그 -->
     {% if page.tags.size > 0 %}
       <div class="post-tags">
@@ -39,16 +47,46 @@ script_includes:
     {% endif %}
 
     <!-- 날짜 -->
-    <div class="post-date">
-      {{ site.data.locales[lang].post.posted }}
-      {% include datetime.html date=page.date tooltip=true lang=lang %}
+    <div class="post-meta text-muted">
+      <span>
+        {{ site.data.locales[lang].post.posted }}
+        {% include datetime.html date=page.date tooltip=true lang=lang %}
+      </span>
+
+      <!-- 수정된 날짜 -->
+      {% if page.last_modified_at and page.last_modified_at != page.date %}
+        <span>
+          {{ site.data.locales[lang].post.updated }}
+          {% include datetime.html date=page.last_modified_at tooltip=true lang=lang %}
+        </span>
+      {% endif %}
     </div>
-  </div>
+  </header>
+
+  {% if enable_toc %}
+    <!-- TOC 관련 코드 -->
+    {% include toc.html %}
+  {% endif %}
 
   <div class="content">
     {{ content }}
   </div>
 
+  <div class="post-tail-wrapper text-muted">
+    <!-- 카테고리 -->
+    {% if page.categories.size > 0 %}
+      <div class="post-meta mb-3">
+        <i class="far fa-folder-open fa-fw me-1"></i>
+        {% for category in page.categories %}
+          <a href="{{ site.baseurl }}/categories/{{ category | slugify | url_encode }}/">{{ category }}</a>
+          {%- unless forloop.last -%},{%- endunless -%}
+        {% endfor %}
+      </div>
+    {% endif %}
 
+    <!-- 댓글 -->
+    <div class="post-comments">
+      {% include comments.html %}
+    </div>
   </div>
 </article>
