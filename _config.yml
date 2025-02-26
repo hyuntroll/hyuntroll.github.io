@@ -118,7 +118,7 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: # <gh-username>/<repo>
+    repo: "hyuntroll/hyuntroll.github.io"
     repo_id: "R_kgDON_pVDA"
     category: "Comments"
     category_id: "DIC_kwDON_pVDM4CnW4p
