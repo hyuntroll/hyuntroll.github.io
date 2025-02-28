@@ -1,6 +1,6 @@
 ---
 layout: page
-# All the Categories of posts
+# All the Categories of posts, including artworks
 ---
 
 {% include lang.html %}
@@ -9,7 +9,6 @@ layout: page
 {% assign LIST_PREFIX = 'l_' %}
 
 {% assign group_index = 0 %}
-
 {% assign sort_categories = site.categories | sort %}
 
 {% for category in sort_categories %}
@@ -17,7 +16,7 @@ layout: page
   {% assign posts_of_category = category | last %}
   {% assign first_post = posts_of_category | first %}
 
-  {% if category_name == first_post.categories[0] %}
+  {% if category_name == first_post.categories[0] or category_name == "artworks" %}
     {% assign sub_categories = '' | split: '' %}
 
     {% for post in posts_of_category %}
