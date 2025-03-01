@@ -172,6 +172,8 @@ collections:
   artworks:
     output: true
     permalink: /artworks/:title/
+  category_descriptions:
+    output: true
 
 defaults:
   - scope:
