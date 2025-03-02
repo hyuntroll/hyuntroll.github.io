@@ -11,6 +11,13 @@ layout: page
     {{ page.title }}
     <span class="lead text-muted ps-2">{{ page.posts | size }}</span>
   </h1>
+  {% for description in site.tag_descriptions %}
+    {% if description.title == page.title %}
+      <p>{{ description.content | markdownify }}</p>
+      {% break %}
+    {% endif %}
+  {% endfor %}
+  <hr />
   <ul class="content ps-0">
     {% for post in page.posts %}
       <li class="d-flex justify-content-between px-md-3">
