@@ -44,7 +44,7 @@ blockquote: 인용구
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1학년 3반 17번 현승민</title>
+    <title>엄</title>
 </head>
 <body>
     <h1>제목을 만들었습니다.</h1>
