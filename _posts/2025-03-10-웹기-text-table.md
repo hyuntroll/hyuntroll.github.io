@@ -1,6 +1,6 @@
 ---
 title: 웹기초 text, table 
-date: 2025-03-010 14:34:00 +0900
+date: 2025-03-10 14:34:00 +0900
 categories: [학교수업, 웹기초]
 tags: [기록, DGSW, 학교수업, 웹기초, HTML]
 toc: ture
