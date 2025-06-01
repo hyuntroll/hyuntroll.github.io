@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Allow: /ads.txt
 
-Sitemap: http://jinyongjeong.github.io/sitemap.xml
+Feed: https://hyuntroll.github.io/feed.xml
+Sitemap: https://hyuntroll.github.io/sitemap.xml
